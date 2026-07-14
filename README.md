@@ -1,94 +1,211 @@
 🚀 SPI Master Controller using Verilog HDL
-> **Professional RTL Design Project | Verilog HDL | FPGA | Digital Design**
-<p align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,100:2c5364&height=220&section=header&text=SPI%20Master&fontColor=00F5FF&fontSize=50"/>
-</p>
-<p align="center">
-<img src="https://readme-typing-svg.demolab.com?font=Poppins&weight=700&size=24&duration=1500&pause=300&color=00F5FF&center=true&vCenter=true&width=900&lines=SPI+Master+Controller;RTL+Design;Verilog+HDL;Digital+Communication;FPGA+Implementation"/>
-</p>
-<p align="center">
-<img src="https://img.shields.io/badge/Verilog-HDL-blue?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Protocol-SPI-success?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/RTL-Design-orange?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Quartus-Prime-blueviolet?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Simulation-ModelSim-red?style=for-the-badge"/>
-</p>
----
+
+High-Speed Serial Communication Protocol | RTL Design | Digital Electronics | FPGA Implementation
+
+<p align="center"> <img src="https://img.shields.io/badge/Language-Verilog-blue?style=for-the-badge"/> <img src="https://img.shields.io/badge/Protocol-SPI-success?style=for-the-badge"/> <img src="https://img.shields.io/badge/RTL-Design-orange?style=for-the-badge"/> <img src="https://img.shields.io/badge/Verification-ModelSim-red?style=for-the-badge"/> <img src="https://img.shields.io/badge/FPGA-Quartus-blueviolet?style=for-the-badge"/> </p>
 📖 Overview
-This project implements a synthesizable SPI Master Controller in Verilog HDL. It supports full-duplex serial communication through MOSI, MISO, SCLK and CS using an FSM-based architecture.
+
+The SPI (Serial Peripheral Interface) Master Controller is a synthesizable RTL design implemented in Verilog HDL. It enables reliable full-duplex serial communication between a master device and SPI-compatible slave peripherals.
+
+The controller manages:
+
+Serial Clock Generation (SCLK)
+Master Out Slave In (MOSI)
+Master In Slave Out (MISO)
+Chip Select (CS)
+FSM-based Data Transfer
+8-bit Serial Communication
+
+Designed for FPGA implementation and digital hardware verification.
+
 ✨ Features
-FSM Based Controller
-8-bit Serial Transfer
-Configurable Clock Divider
-MOSI Transmission
-MISO Reception
-Active-Low Chip Select
-Synthesizable RTL
-ModelSim Verification
-Quartus Compatible
-<details>
-<summary><b>🏗 Architecture</b></summary>
-```text
-+-----------------------------+
-|         SPI MASTER          |
-| Clock Divider               |
-| FSM Controller              |
-| Shift Registers             |
-|                             |
-| MOSI --->                   |
-| <--- MISO                   |
-| SCLK --->                   |
-| CS   --->                   |
-+-----------------------------+
-```
-</details>
-<details>
-<summary><b>🔄 FSM</b></summary>
-```text
-IDLE
- |
- v
-TRANSFER
- |
- v
-FINISH
- |
- +--> IDLE
-```
-</details>
-📂 Project Structure
-```text
+
+✅ Fully Synthesizable RTL
+
+✅ FSM Based Architecture
+
+✅ 8-bit Serial Transfer
+
+✅ Full Duplex Communication
+
+✅ Configurable Clock Divider
+
+✅ Active-Low Chip Select
+
+✅ MOSI Transmission
+
+✅ MISO Reception
+
+✅ Quartus Compatible
+
+✅ ModelSim Verified
+
+🏗 Architecture
+                 +----------------------+
+                 |     SPI MASTER       |
+                 |                      |
+ CLK ----------->| Clock Divider        |
+ RESET --------->| FSM Controller       |
+ START --------->| Shift Register       |
+ DATA_IN ------->|                      |
+                 |                MOSI ---------->
+                 |<--------------- MISO
+                 |                SCLK ---------->
+                 |                CS ----------->|
+                 +----------------------+
+🔄 FSM Diagram
+            +-------+
+            | IDLE  |
+            +-------+
+                |
+                |
+                ▼
+         +---------------+
+         |   TRANSFER    |
+         +---------------+
+                |
+                |
+                ▼
+          +-----------+
+          |  FINISH   |
+          +-----------+
+                |
+                ▼
+             IDLE
+📡 SPI Signals
+Signal	Direction	Description
+CLK	Input	System Clock
+RESET	Input	Active High Reset
+START	Input	Start Transaction
+DATA_IN	Input	Parallel Data
+MOSI	Output	Serial Output
+MISO	Input	Serial Input
+SCLK	Output	SPI Clock
+CS	Output	Slave Select
+DATA_OUT	Output	Received Data
+⚙ Working Flow
+System Reset
+
+↓
+
+Wait for START
+
+↓
+
+CS goes LOW
+
+↓
+
+Generate SPI Clock
+
+↓
+
+Shift Data through MOSI
+
+↓
+
+Receive Data through MISO
+
+↓
+
+Complete 8-bit Transfer
+
+↓
+
+CS goes HIGH
+
+↓
+
+Return to IDLE
+📂 Repository Structure
 SPI-Master-Verilog/
-├── rtl/
-│   └── spi_master.v
-├── testbench/
-│   └── spi_master_tb.v
-├── simulation/
-│   └── waveform.png
-├── rtl_view/
-│   └── rtl.png
-└── README.md
-```
-📸 Results
+
+│── rtl/
+│     spi_master.v
+
+│── testbench/
+│     spi_master_tb.v
+
+│── simulation/
+│     waveform.png
+
+│── rtl_view/
+│     rtl.png
+
+│── docs/
+│     spi_block_diagram.png
+
+│── README.md
+🧪 Verification
+
+✔ Functional Simulation
+
+✔ RTL Viewer
+
+✔ Technology Map Viewer
+
+✔ Compilation Successful
+
+✔ No Syntax Errors
+
+✔ Waveform Verification
+
+📊 Results
 RTL Viewer
-> Add `rtl.png`
+📷 Add rtl.png
 Simulation Waveform
-> Add `waveform.png`
-🛠 Tools
-Verilog HDL
-Intel Quartus Prime Lite
-ModelSim
-🚀 Future Enhancements
-SPI Modes 0–3
+📷 Add waveform.png
+Technology Map
+📷 Add technology_map.png
+💻 Tools
+Tool	Purpose
+Verilog HDL	RTL Design
+Quartus Prime Lite	Synthesis
+ModelSim	Simulation
+FPGA	Hardware Implementation
+📚 Applications
+Flash Memory
+EEPROM
+ADC
+DAC
+Temperature Sensors
+OLED Display
+LCD
+SD Card
+FPGA Communication
+Embedded Systems
+🎯 Learning Outcomes
+SPI Protocol
+FSM Design
+Shift Registers
+Serial Communication
+Digital Logic Design
+RTL Coding
+FPGA Design Flow
+Functional Verification
+🚀 Future Improvements
+SPI Mode 0/1/2/3 Support
 Variable Data Width
-FIFO Interface
+Configurable Clock Divider
 Multiple Slave Support
----
+Interrupt Generation
+FIFO Integration
+Wishbone / AXI Interface
+📜 License
+
+MIT License
+
 👨‍💻 Author
 Tamil Kumaran
-GitHub: https://github.com/tamilkumaran-DV
-LinkedIn: https://linkedin.com/in/tamilkumaran06
----
+
+RTL Design | Verilog HDL | Digital Design | FPGA | VLSI
+
+🌐 GitHub
+https://github.com/tamilkumaran-DV
+
+💼 LinkedIn
+https://linkedin.com/in/tamilkumaran06
+
 <p align="center">
-⭐ If you like this project, please give it a Star!
+⭐ If you found this project useful, don't forget to Star this repository!
 </p>
